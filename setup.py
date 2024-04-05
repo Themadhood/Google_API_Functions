@@ -4,10 +4,10 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='TPC_Template',
+    name='TPC_GoogleSheet_Functions',
     version="1.0.0",#__version__,
 
-    url='https://github.com/Themadhood/Template',
+    url='https://github.com/Themadhood/GoogleSheet_Functions',
     author='Themadhood Pequot',
     author_email='themadhoodpequot@gmail.com',
 
