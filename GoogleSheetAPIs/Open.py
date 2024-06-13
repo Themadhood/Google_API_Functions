@@ -1,12 +1,15 @@
-#program:       Open
-#purpose:       Fetches records
-#progamer:      Themadhood Pequot 5/8/2023
-
-_FILE = "GoogleSheet.Open"
-_VERSION = "0.0.1"
+__Program__     = "GoogleSheetAPIs.Open"    
+__Programer__   = "Themadhood Pequot"
+__Date__        = "5/8/2023"
+__Version__     = "0.0.2"
+__Update__      = "Documentation"
+__Info__        = "Fetches records"
 
 #imports
 import Error
+
+VersionLst = [f"{__Program__}: {__Version__}"]
+VersionLst += Error.VersionLst
     
 _gspread = Error.gspread
 _ServiceAccountCredentials = Error.ServiceAccountCredentials
@@ -41,6 +44,7 @@ def GetWorkSheet(sheetname,URL,credentials):
 
 
 if __name__ == "__main__":
+    Error.VershonRecordsLog(pyName=__Program__,msg=VersionLst)
     creds = 'Personal.json'
     URL = ""
 

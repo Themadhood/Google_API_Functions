@@ -1,9 +1,9 @@
-#program:       GetVersion
-#purpose:       get spesific virsion
-#progamer:      Themadhood Pequot 11/15/2023
-
-_FILE = "GoogleSheet.GetVersion"
-_VERSION = "0.0.1"
+__Program__     = "GoogleSheetAPIs.GetVersion"    
+__Programer__   = "Themadhood Pequot"
+__Date__        = "11/15/2023"
+__Version__     = "0.0.2"
+__Update__      = "Documentation"
+__Info__        = "get spesific virsion"
 
 
 import gspread
@@ -13,6 +13,8 @@ try:
     from .Retreve import *
 except:
     from Retreve import *
+
+VersionLst += [f"{__Program__}: {__Version__}"]
 
 import io,os,time,sys
 if getattr(sys, 'frozen', False):
@@ -89,6 +91,7 @@ def CheckVersionGreater(current,check,error=False):
 
 
 if __name__ == "__main__":
+    Error.VershonRecordsLog(pyName=__Program__,msg=VersionLst)
     data = GetVersion("Apps",{'EVG URL':"12.0.0","X18 URL":"1.0.0"})
     print(data)
 

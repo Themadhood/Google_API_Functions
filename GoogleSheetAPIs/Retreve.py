@@ -1,15 +1,17 @@
-#program:       Retreve
-#purpose:       Fetches records
-#progamer:      Themadhood Pequot 5/8/2023
-
-_FILE = "GoogleSheet.Retreve"
-_VERSION = "0.0.2"
+__Program__     = "GoogleSheetAPIs.Retreve"    
+__Programer__   = "Themadhood Pequot"
+__Date__        = "5/8/2023"
+__Version__     = "0.0.3"
+__Update__      = "Documentation"
+__Info__        = "Fetches records"
 
 #imports
 try:
     from .Open import *
 except:
     from Open import *
+
+VersionLst += [f"{__Program__}: {__Version__}"]
 
 _gspread = Error.gspread
 _ServiceAccountCredentials = Error.ServiceAccountCredentials
@@ -85,7 +87,7 @@ def _GetAllFromSheet(Sheet,Retry=0,error=False):
 {FailCount} times {Retry} Retry"
                 
             if FailCount > 100:
-                Error.UploadError([_FILE,_VERSION,
+                Error.UploadError([__Program__,__version__,
                                        "","_GetAllFromSheet",msg,e],
                                   "GoogleSheet")
                 _time.sleep(30)
@@ -96,6 +98,10 @@ def _GetAllFromSheet(Sheet,Retry=0,error=False):
                     except:
                         Retry+=1
     return DataSet
+
+if __name__ == "__main__":
+    Error.VershonRecordsLog(pyName=__Program__,msg=VersionLst)
+
 
 #index.title#name of sheet
 """

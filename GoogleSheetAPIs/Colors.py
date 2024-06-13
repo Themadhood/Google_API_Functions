@@ -1,8 +1,9 @@
-#program:       Colors
-#purpose:       set color settings
-#progamer:      Themadhood Pequot 9/15/2023
-
-_VERSION = "0.0.1"
+__Program__     = "GoogleSheetAPIs.Colors"    
+__Programer__   = "Themadhood Pequot"
+__Date__        = "9/15/2023"
+__Version__     = "0.0.2"
+__Update__      = "Documentation"
+__Info__        = ""
 
 
 COLORS = {"Gray":       {'red':0.5,'green':0.5,'blue':0.5},

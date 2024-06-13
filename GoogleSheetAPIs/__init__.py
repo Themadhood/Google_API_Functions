@@ -1,9 +1,9 @@
-#program:       __init__
-#purpose:       Fetches records
-#progamer:      Themadhood Pequot 5/8/2023
-
-_FILE = "GoogleSheetAPIs.__init__"
-_VERSION = "0.0.3"
+__Program__     = "GoogleSheetAPIs.__init__"    
+__Programer__   = "Themadhood Pequot"
+__Date__        = "5/8/2023"
+__Version__     = "0.0.4"
+__Update__      = "Documentation"
+__Info__        = ""
 
 #imports
 try:
@@ -12,6 +12,8 @@ try:
 except:
     from Colors import *
     from GetVersion import *
+
+VersionLst += [f"{__Program__}: {__Version__}"]
     
 _gspread = Error.gspread
 _ServiceAccountCredentials = Error.ServiceAccountCredentials
@@ -179,7 +181,7 @@ def UpdateRecord(sheetname,col1,col2,row,value,URL,credentials):
 
 
 if __name__ == "__main__":
-    pass
+    Error.VershonRecordsLog(pyName=__Program__,msg=VersionLst)
 
 #index.title#name of sheet
 """
