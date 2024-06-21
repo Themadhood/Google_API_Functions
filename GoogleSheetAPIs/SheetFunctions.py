@@ -24,6 +24,15 @@ def RemoveBlanksFromSheetDataSet(DataSet:list,PrimeryKey:str,Error=False):
             break
     return retar
 
+def SheetListFormat(DataSet:list,keys,SplitKey=","):
+    for record in DataSet:
+        ListFormat(record,keys,SplitKey)
+
+def SheetDictFormat(DataSet:list,,keys,ValueSplitKey=":",SplitKey=","):
+    for record in DataSet:
+        ListFormat(record,keys,ValueSplitKey,SplitKey)
+    
+
 
 if __name__ == "__main__":
     Error.VershonRecordsLog(pyName=__Program__,msg=VersionLst)
