@@ -1,22 +1,32 @@
-__Program__     = "GoogleSheetAPIs.__init__"    
+__Program__     = "GoogleSheetAPIs.SheetFunctions"    
 __Programer__   = "Themadhood Pequot"
-__Date__        = "5/8/2023"
-__Version__     = "0.0.4"
-__Update__      = "Documentation"
+__Date__        = "6/21/2024"
+__Version__     = "0.0.1"
+__Update__      = ""
 __Info__        = ""
 
 #imports
 try:
-    from .WorkBookFunctions import *
+    from .RecordFunctions import *
 except:
-    from WorkBookFunctions import *
+    from RecordFunctions import *
 
 VersionLst += [f"{__Program__}: {__Version__}"]
 
+def RemoveBlanks(DataSet:list,PrimeryKey:str,Error=False):
+    DataSet = DataSet.copy()
+    retar = []
+    while DataSet > []:
+        record = DataSet.pop(0)
+        if record[PrimeryKey] != "":
+            retar.append(record)
+        else:
+            break
+    return retar
 
 
 if __name__ == "__main__":
-    Error.VersionRecordsLog(pyName=__Program__,msg=VersionLst)
+    Error.VershonRecordsLog(pyName=__Program__,msg=VersionLst)
 
 #index.title#name of sheet
 """
