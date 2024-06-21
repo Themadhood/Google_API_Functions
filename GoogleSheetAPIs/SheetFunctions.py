@@ -13,7 +13,7 @@ except:
 
 VersionLst += [f"{__Program__}: {__Version__}"]
 
-def RemoveBlanks(DataSet:list,PrimeryKey:str,Error=False):
+def RemoveBlanksFromSheetDataSet(DataSet:list,PrimeryKey:str,Error=False):
     DataSet = DataSet.copy()
     retar = []
     while DataSet > []:

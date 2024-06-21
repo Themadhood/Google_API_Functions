@@ -41,6 +41,13 @@ def DictListCompile(workBook:dict,PrimeryKey:str):
             dct.update({record[PrimeryKey]:record})
     return dct,lst
 
+#########################################################################
+################################# other #################################
+#########################################################################
+
+def RemoveBlanksFromWorkBookDataSet(DataSet:dict,PrimeryKey:str,Error=False):
+    for sheet, records in DataSet.items():
+        DataSet[sheet] = RemoveBlanksFromSheetDataSet(records,PrimeryKey,Error)
 
 
 if __name__ == "__main__":
