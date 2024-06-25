@@ -28,9 +28,20 @@ def SheetListFormat(DataSet:list,keys,SplitKey=","):
     for record in DataSet:
         ListFormat(record,keys,SplitKey)
 
-def SheetDictFormat(DataSet:list,,keys,ValueSplitKey=":",SplitKey=","):
+def SheetDictFormat(DataSet:list,keys,ValueSplitKey=":",SplitKey=","):
     for record in DataSet:
-        ListFormat(record,keys,ValueSplitKey,SplitKey)
+        DictFormat(record,keys,ValueSplitKey,SplitKey)
+
+        
+
+def SheetAddKeyToRecord(DataSet:list, key_value:dict):
+    for record in DataSet:
+        AddKeyToRecord(record=record, key_value=key_value)
+
+def SheetRecord_Insert_key(DataSet:list, keyAfter_value:dict):
+    """keyAfter_value = {"key insert comes after":{key:value}}"""
+    for record in DataSet:
+        Record_Insert_key(record=record,keyAfter_value=keyAfter_value)
     
 
 

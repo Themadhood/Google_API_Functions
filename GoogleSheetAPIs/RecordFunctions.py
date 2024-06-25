@@ -17,20 +17,30 @@ VersionLst += [f"{__Program__}: {__Version__}"]
 def AddKeyToRecord(record:dict, key_value:dict):
     for k, v in key_value.items():
         record.update({k:v})
-    return record
 
-def Record_Insert_key(record:dict, key, KeyAfter, value):
-    dct=dict()
-    for k, v in record.items():
-        
-        if k==KeyAfter:
-            dct.update({key:value})
-            
+def Record_Insert_key(record:dict, keyAfter_value:dict):
+    """keyAfter_value = {"key insert comes after":{key:value}}"""
+    dct = {}
+    keyAfter_value = keyAfter_value.copy()
+
+    while record > {}:
+        k,v = record.popitem()
         dct.update({k:v})
+
+    
+    while dct > {}:
+        k,v = dct.popitem()
+
+        record.update({k:v})
+        if k in keyAfter_value:
+            AddKeyToRecord(record = record, key_value = keyAfter_value[k])
+            keyAfter_value.pop(k)
+
         
-        if KeyAfter == "":
-            dct.update({key:value})
-    return dct
+    if keyAfter_value > {}:
+        while keyAfter_value > {}:
+            k,v = keyAfter_value.popitem()
+            AddKeyToRecord(record = record, key_value = v)
 
 
 #########################################################################
@@ -43,7 +53,6 @@ def ListFormat(record,keys,SplitKey=","):
             record[key] = []
         else:
             record[key] = record[key].split(SplitKey)
-    return record
 
 def DictFormat(record,keys,ValueSplitKey=":",SplitKey=","):
     for key in keys:
@@ -55,7 +64,6 @@ def DictFormat(record,keys,ValueSplitKey=":",SplitKey=","):
             for element in dct:
                 e = element.split(ValueSplitKey)
                 record[key].update({e[0]:e[1]})
-    return record
 
 #########################################################################
 ############################# Other #####################################
@@ -78,7 +86,7 @@ def MakeBlank(FiledRecord):
     
 
 if __name__ == "__main__":
-    Error.VershonRecordsLog(pyName=__Program__,msg=VersionLst)
+    Error.VersionRecordsLog(pyName=__Program__,msg=VersionLst)
 
 #index.title#name of sheet
 """
