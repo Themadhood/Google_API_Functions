@@ -16,19 +16,22 @@ VersionLst += [f"{__Program__}: {__Version__}"]
 
 def AddKeyToRecord(record:dict, key_value:dict):
     for k, v in key_value.items():
-        record.update({k:v})
+        if type(v) in [list,dict]:
+            record.update({k:v.copy()})
+        else:
+            record.update({k:v})
 
 def Record_Insert_key(record:dict, keyAfter_value:dict):
     """keyAfter_value = {"key insert comes after":{key:value}}"""
     dct = {}
     keyAfter_value = keyAfter_value.copy()
 
-    while record > {}:
+    while list(record) > []:
         k,v = record.popitem()
         dct.update({k:v})
 
     
-    while dct > {}:
+    while list(dct) > []:
         k,v = dct.popitem()
 
         record.update({k:v})
@@ -37,7 +40,7 @@ def Record_Insert_key(record:dict, keyAfter_value:dict):
             keyAfter_value.pop(k)
 
         
-    if keyAfter_value > {}:
+    if list(keyAfter_value) > []:
         while keyAfter_value > {}:
             k,v = keyAfter_value.popitem()
             AddKeyToRecord(record = record, key_value = v)
